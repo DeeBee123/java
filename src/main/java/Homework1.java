@@ -37,10 +37,28 @@ public class Homework1 {
         System.out.println(Arrays.toString(intArray));
 
     }
+
+    private static void avgInc(int[] arrayA, int[] arrayB){
+        double sumA =0;
+        double sumB = 0;
+        for (int i = 0; i < arrayA.length; i++) {
+            sumA+=arrayA[i];
+        }
+        for (int i = 0; i < arrayB.length; i++) {
+            sumB+=arrayB[i];
+        }
+        double difference = sumA/arrayA.length -sumB/arrayB.length;
+        System.out.println(difference);
+    }
+
     public static void main(String[] args) {
 
         triangle(2,3,2);
         int[] intArray={-10, 0, 2, 9, -5};
         sortAsc(intArray);
+        int[] a= {5,6,10,15,8,4};
+        int[] b={8,5,3};
+        avgInc(a,b);
+
     }
 }
