@@ -24,29 +24,17 @@ public class Homework1 {
     }}
 
     private static void sortAsc(int[] intArray) {
-        int i;
-        int n = intArray.length;
-        System.out.println(n);
-        int[] sortedArray={};
-        for ( int val: intArray){
-
-            if(sortedArray.length>0) {
-            for(i= 0; i< n; i++){
-                    if (val > sortedArray[i]) {
-                        System.out.println("val is more");
-                     sortedArray[i + 1] = val;
-                    } else {
-                        System.out.println("val is less");
-                     sortedArray[i] =val;
-                    }
-
+        for (int i = 0; i < intArray.length; i++) {
+            for (int j = i+1; j < intArray.length; j++) {
+                if (intArray[i] > intArray[j]) {
+                    int tempValue = intArray[i];
+                    intArray[i] = intArray[j];
+                    intArray[j] = tempValue;
                 }
-            }else {
-                System.out.println(val);
-                    sortedArray[0]=val;
             }
         }
-        System.out.println(Arrays.toString(sortedArray));
+
+        System.out.println(Arrays.toString(intArray));
 
     }
     public static void main(String[] args) {
