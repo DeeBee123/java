@@ -51,6 +51,28 @@ public class Homework1 {
         System.out.println(difference);
     }
 
+    private static void findPerfect(int[] interval) {
+        int[] perfect = {};
+        for (int i = interval[1]; i> interval[0]; i--){
+            int numb = 0;
+
+            for (int j = i - 1; j > interval[0]; j--) {
+
+                if (i % j == 0) {
+                   numb = numb +j;
+//                    System.out.println("j"+j);
+//                    System.out.println("numb"+numb);
+                    if(numb == i){
+                        System.out.println("tobulas" + i+ "numb" + numb);
+                    }
+
+//                    System.out.println(i + "dalmuo" + j);
+
+                }
+            }
+        }
+
+    }
     public static void main(String[] args) {
 
         triangle(2,3,2);
@@ -59,6 +81,7 @@ public class Homework1 {
         int[] a= {5,6,10,15,8,4};
         int[] b={8,5,3};
         avgInc(a,b);
-
+        int[] c={0,100};
+        findPerfect(c);
     }
 }
