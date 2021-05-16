@@ -1,3 +1,5 @@
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 public class Homework1 {
     private static void triangle(double a, double b, double c) {
@@ -52,27 +54,58 @@ public class Homework1 {
     }
 
     private static void findPerfect(int[] interval) {
-        int[] perfect = {};
-        for (int i = interval[1]; i> interval[0]; i--){
+        for (int i = interval[1]; i > interval[0]; i--) {
             int numb = 0;
 
             for (int j = i - 1; j > interval[0]; j--) {
-
                 if (i % j == 0) {
-                   numb = numb +j;
-//                    System.out.println("j"+j);
-//                    System.out.println("numb"+numb);
-                    if(numb == i){
-                        System.out.println("tobulas" + i+ "numb" + numb);
-                    }
-
-//                    System.out.println(i + "dalmuo" + j);
-
+                    numb = numb + j;
                 }
             }
+            if (numb == i) {
+                System.out.println("perfect number" + i);
+            }
         }
+    }
+
+    private static void findPrime(int[] interval){
+        for (int i = interval[1]; i > interval[0]; i--) {
+            int numb = 0;
+
+            for (int j = i; j > interval[0]; j--) {
+                if (i % j == 0) {
+                    numb = numb + j;
+                }
+            }
+            if (numb == i +1) {
+                System.out.println("prime number" + i);
+            }
+        }
+    }
+
+    private static void floorNumb(double[] d){
+       double numb = d[0];
+       int length = String.valueOf(numb).length();
+        int[] arrNumb = String.valueOf(numb).chars().map(Character::getNumericValue).toArray();
+        double round = d[1];
+       String format = "";
+        for (int i = 0; i < length -round; i++) {
+            if (arrNumb[i] == -1) {
+                format = format + ".";
+
+            } else {
+                format = format + "#";
+            }
+
+       }
+       if(round>0){
+           DecimalFormat df = new DecimalFormat(format);
+           df.setRoundingMode(RoundingMode.FLOOR);
+           System.out.println(df.format(numb));
+       }
 
     }
+
     public static void main(String[] args) {
 
         triangle(2,3,2);
@@ -81,7 +114,10 @@ public class Homework1 {
         int[] a= {5,6,10,15,8,4};
         int[] b={8,5,3};
         avgInc(a,b);
-        int[] c={0,100};
+        int[] c={0,1000};
         findPerfect(c);
+        findPrime(c);
+        double[] d = {8.957841, 3};
+        floorNumb(d);
     }
 }
