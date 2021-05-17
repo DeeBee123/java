@@ -7,7 +7,7 @@ public class Homework1 {
         var type = "";
        double area = 0;
        if(a+b>c && b+c> a && a+c>b) {
-        if (a == b && b == c) {
+        if (a == b && c == a) {
             type="equilateral";
             area = Math.pow(a, 2) * Math.pow(3, 0.5)/4;
         } else if (a == b || b == c || a == c) {
